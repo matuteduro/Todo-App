@@ -94,7 +94,7 @@ function TodoModal({ type, ModalOpen, setModalOpen, todo }) {
                 onChange={(e) => setStatus(e.target.value)}
               >
                 <option value="incomplete">Incomplete</option>
-                <option value="complete">Complete</option>
+                <option value="complete">Completed</option>
               </select>
             </label>
             <div className={styles.buttonContainer}>

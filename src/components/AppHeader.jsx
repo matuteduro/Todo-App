@@ -14,7 +14,7 @@ function AppHeader() {
       <SelectButton id="status">
         <option value="all">All</option>
         <option value="incomplete">Incomplete</option>
-        <option value="complete">Complete</option>
+        <option value="complete">Completed</option>
       </SelectButton>
       <TodoModal type="add" ModalOpen={ModalOpen} setModalOpen={setModalOpen} />
     </div>
