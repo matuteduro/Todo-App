@@ -1,11 +1,22 @@
-import React from 'react';
-import Button from './Button';
+import React, { useState } from 'react';
+import Button, { SelectButton } from './Button';
+import TodoModal from './TodoModal';
+import styles from '../styles/modules/app.module.scss';
 
 function AppHeader() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
-    <div>
-      <h1>Hello from header</h1>;
-      <Button>Click me</Button>
+    <div className={styles.appHeader}>
+      <Button variant="primary" onClick={() => setModalOpen(true)}>
+        Add Task
+      </Button>
+      <SelectButton id="status">
+        <option value="all">All</option>
+        <option value="incomplete">Incomplete</option>
+        <option value="complete">Complete</option>
+      </SelectButton>
+      <TodoModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
     </div>
   );
 }
