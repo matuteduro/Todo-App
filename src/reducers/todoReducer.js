@@ -32,8 +32,35 @@ export const todoReducer = createSlice({
         );
       }
     },
+    deleteTodo: (state, action) => {
+      const todoList = window.localStorage.getItem('todoList');
+      if (todoList) {
+        const todoListArr = JSON.parse(todoList);
+        todoListArr.forEach((todo, index) => {
+          if (todo.id === action.payload) {
+            todoListArr.splice(index, 1);
+          }
+        });
+        window.localStorage.setItem('todoList', JSON.stringify(todoListArr));
+        state.todoList = todoListArr;
+      }
+    },
+    updateTodo: (state, action) => {
+      const todoList = window.localStorage.getItem('todoList');
+      if (todoList) {
+        const todoListArr = JSON.parse(todoList);
+        todoListArr.forEach((todo, index) => {
+          if (todo.id === action.payload.id) {
+            todo.status = action.payload.status;
+            todo.title = action.payload.title;
+          }
+        });
+        window.localStorage.setItem('todoList', JSON.stringify(todoListArr));
+        state.todoList = todoListArr;
+      }
+    },
   },
 });
 
-export const { addTodo } = todoReducer.actions;
+export const { addTodo, deleteTodo, updateTodo } = todoReducer.actions;
 export default todoReducer.reducer;

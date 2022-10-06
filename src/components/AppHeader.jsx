@@ -4,7 +4,7 @@ import TodoModal from './TodoModal';
 import styles from '../styles/modules/app.module.scss';
 
 function AppHeader() {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [ModalOpen, setModalOpen] = useState(false);
 
   return (
     <div className={styles.appHeader}>
@@ -16,7 +16,7 @@ function AppHeader() {
         <option value="incomplete">Incomplete</option>
         <option value="complete">Complete</option>
       </SelectButton>
-      <TodoModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
+      <TodoModal type="add" ModalOpen={ModalOpen} setModalOpen={setModalOpen} />
     </div>
   );
 }
