@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import { MdOutlineClose } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
 import { v4 as uuid } from 'uuid';
@@ -22,6 +23,10 @@ function TodoModal({ modalOpen, setModalOpen }) {
           time: new Date().toLocaleString(),
         })
       );
+      toast.success('Task Added Succesfully');
+      setModalOpen(false);
+    } else {
+      toast.error("Title shouldn't be empty");
     }
   };
   return (
